@@ -17,19 +17,20 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     profile_image: {
-      type: DataTypes.STRING,
-      defaultValue: "No img",
+      type: DataTypes.BLOB,
+      allowNull: true
     },
     username: {
-      type: DataTypes.STRING(30),
+      type: DataTypes.STRING(20),
       allowNull: false
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(20),
       allowNull: false
     },
     admin: {
       type: DataTypes.BOOLEAN,
+      allowNull: true,
       defaultValue: false
     }
   });
