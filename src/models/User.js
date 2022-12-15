@@ -13,11 +13,11 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     email: {
-      type: DataTypes.STRING(40),
+      type: DataTypes.STRING(50),
       allowNull: false
     },
     profile_image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true
     },
     username: {
@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     password: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(50),
       allowNull: false
     },
     admin: {

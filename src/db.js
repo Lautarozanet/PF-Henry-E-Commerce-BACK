@@ -10,7 +10,7 @@ const {
 //    logging: false, // set to console.log to see the raw SQL queries
 //    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 //  });
-const sequelize = new Sequelize(DB_DEPLOY, {
+ const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 }); 
@@ -53,6 +53,9 @@ Purchase.belongsToMany(User, { through: "users_purchases" })
 
 User.belongsToMany(Comment, { through: "users_comments" })
 Comment.belongsToMany(User, { through: "users_comments" })
+
+User.belongsToMany(Comment, { as:"reported", through: "user_comment" })
+Comment.belongsToMany(User, { as:"reported",through: "comment_user" })
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
